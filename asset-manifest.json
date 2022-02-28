@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/orderWebsite/static/js/main.4591d201.chunk.js",
+    "main.js.map": "/orderWebsite/static/js/main.4591d201.chunk.js.map",
+    "runtime-main.js": "/orderWebsite/static/js/runtime-main.2d131449.js",
+    "runtime-main.js.map": "/orderWebsite/static/js/runtime-main.2d131449.js.map",
+    "static/js/2.97bd9230.chunk.js": "/orderWebsite/static/js/2.97bd9230.chunk.js",
+    "static/js/2.97bd9230.chunk.js.map": "/orderWebsite/static/js/2.97bd9230.chunk.js.map",
+    "static/js/3.232fb013.chunk.js": "/orderWebsite/static/js/3.232fb013.chunk.js",
+    "static/js/3.232fb013.chunk.js.map": "/orderWebsite/static/js/3.232fb013.chunk.js.map",
+    "index.html": "/orderWebsite/index.html",
+    "static/js/2.97bd9230.chunk.js.LICENSE.txt": "/orderWebsite/static/js/2.97bd9230.chunk.js.LICENSE.txt",
+    "static/media/pizza-3.f2f9b9a4.jpg": "/orderWebsite/static/media/pizza-3.f2f9b9a4.jpg",
+    "static/media/product-1.36d084f3.jpg": "/orderWebsite/static/media/product-1.36d084f3.jpg",
+    "static/media/product-2.4c066971.jpg": "/orderWebsite/static/media/product-2.4c066971.jpg",
+    "static/media/product-3.115cc32b.jpg": "/orderWebsite/static/media/product-3.115cc32b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d131449.js",
+    "static/js/2.97bd9230.chunk.js",
+    "static/js/main.4591d201.chunk.js"
+  ]
+}
