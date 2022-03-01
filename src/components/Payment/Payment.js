@@ -4,6 +4,7 @@ import SelectList from './SelectList/SelectList';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import { AddressLv2Data,AddressLv3Data } from '../../Data/AddressData';
 import {
   CircularProgress,
   Alert 
@@ -25,24 +26,17 @@ export default function Payment({
 }){
   const [table,setTable] = useState('');
   const [location,setLocation] = useState('');
-  const [errorTable,setErrorTable] = useState(false);
-  const [errorLocation,setErrorLocation] = useState(false);
+
   const [isPayment,setIsPayment] = useState(false);
   const [donePayment, setDonePayment] = useState(false);
   const [paymentData,setPaymentData] = useState(undefined);
+  const [addressLv2,setAddressLv2] = useState('');
+  const [addressLv3,setAddressLv3] = useState('');
+  const [checkError,setCheckError] = useState(false);
+
   const clickPayment = () =>{
-    if(location === '') {
-      setErrorLocation(true);
-      setErrorTable(true);
-      return;
-    }else if(location === 1) {
-      if(table === ''){
-        setErrorTable(true);
-        return;
-      }
-    }else if(location === 0){
-      return;
-    }
+    setCheckError(true);
+
     setIsPayment(1);
     setTimeout(function (){
       setDonePayment(true);
@@ -61,24 +55,38 @@ export default function Payment({
         </PaymentCard>
         <PaymentCard>
           <SelectList
-            error = {errorLocation}
+            error = {checkError && location === ''}
             disabled = {isPayment}
             required
             label = "Vị trí"
             listData = {["Tại chỗ","Mang về"]}
             value = {location}
             setValue = {setLocation}
-            onClick = {() => errorLocation && setErrorLocation(false)}
           />
           {location === 1 && <SelectList
-            error = {errorTable}
+            error = {checkError && table === '' }
             required
             label = "Bàn"
             listData = {UintTable}
             value = {table}
             setValue = {setTable}
-            onClick = {() => errorTable && setErrorTable(false)}
           />}
+          {location === 2 && <> 
+            <SelectList
+              error = {checkError && addressLv2 === ''}
+              label = {"Huyện"}
+              listData = {AddressLv2Data}
+              value = {addressLv2}
+              setValue = {setAddressLv2}
+            />
+            <SelectList
+              error = {checkError && addressLv3 === ''}
+              label = {"Xã"}
+              listData = {AddressLv3Data[addressLv2-1]}
+              value = {addressLv3}
+              setValue = {setAddressLv3}
+            />
+          </>}
         </PaymentCard>
         <PaymentCard>
           <PaymentBtn 
@@ -115,10 +123,10 @@ export default function Payment({
           severity="success"
         >
           Đặt hàng thành công, vui lòng thanh toán theo hướng dẫn
-          <h4>Thanh toán qua tài khoản ngân hàng hoặc Momo</h4>
-          <h4>Nội dung thanh toán: MV-0000</h4>
-          <h4>Momo: 00000000</h4>
-          <h4>Ngân hàng Aribank: </h4>
+          <p>Thanh toán qua tài khoản ngân hàng hoặc Momo</p>
+          <p>Nội dung thanh toán: MV-0000</p>
+          <p>Momo: 00000000</p>
+          <p>Ngân hàng Aribank: </p>
         </Alert>
       }
       </PaymentContainer>
